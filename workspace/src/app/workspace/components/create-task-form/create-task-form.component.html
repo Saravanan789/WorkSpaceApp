@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="row">
+        <h1>User Story</h1>
+    </div>
+</div>
+<div class="container">
+    <form [formGroup]="createTaskForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Title:</label>
+            <input class="form-control" formControlName="title">
+            <div class="text-danger" *ngIf="title.invalid&&(title.dirty||title.touched)">
+                <div *ngIf="title.errors['required']">title is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>ExternalRefId:</label>
+            <input class="form-control" formControlName="externalRefId">
+            <div class="text-danger" *ngIf="externalRefId.invalid&&(externalRefId.dirty||externalRefId.touched)">
+                <div *ngIf="externalRefId.errors['required']">externalRefId is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>External Status:</label>
+            <input class="form-control" formControlName="externalStatus" required>
+            <div class="text-danger" *ngIf="externalStatus.invalid&&(externalStatus.dirty||externalStatus.touched)">
+                <div *ngIf="externalStatus.errors['required']">externalStatus is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>External Effort:</label>
+            <input class="form-control" formControlName="externalEffort">
+            <div class="text-danger" *ngIf="externalEffort.invalid&&(externalEffort.dirty||externalEffort.touched)">
+                <div *ngIf="externalEffort.errors['required']">externalEffort is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Description:</label>
+            <input class="form-control" formControlName="description">
+            <div class="text-danger" *ngIf="description.invalid&&(description.dirty||description.touched)">
+                <div *ngIf="description.errors['required']">description is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <select class="mdb-select md-form" formControlName="status">
+                <option value="" disabled selected>Status</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="mdb-select md-form" formControlName="sprint">
+                <option value="" disabled selected>Sprint</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="mdb-select md-form" formControlName="severity">
+                <option value="" disabled selected>Severity</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="mdb-select md-form" formControlName="criticality">
+                <option value="" disabled selected>Criticality</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="mdb-select md-form" formControlName="owner">
+                <option value="" disabled selected>Owner</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="story" checked>
+                <label class="custom-control-label" for="customSwitch1">Story</label>
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <button [disabled]="createTaskForm.invalid" class="btn btn-primary">submit</button>
+
+        </div>
+    </form>
+</div>
